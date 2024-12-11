@@ -1,0 +1,56 @@
+#include <cmath>
+#include <iomanip>
+#include <iostream>
+#include <string>
+
+
+int main() {
+    // There are 3 variables, Side a, b, and c. Each variable will be stored upon the users input.
+    double side_a = 0;
+    double side_c = 0;
+    double side_b = 0;
+
+    double semiPerimeter = 0; // This variable will be used as the semi perimeter formula.
+    double area = 0; // This variable will be used as the area's formula.
+    double value = 0; // Variable that will store user's input.
+
+    // Promot the user to pick the length of the first slide.
+    std::cout << "What is the length of the first side? \n";
+    std::cin >> value; // Store the input to the variable value.
+    side_a = value; // The first side will have the value of the users input above.
+
+    // Promot the user to pick the length of the second slide.
+    std::cout << "What is the length of the second side? \n";
+    std::cin >> value; // Store the input to the variable value.
+    side_b = value; // The second side will have the value of the users input above.
+
+    // Promot the user to pick the length of the third slide.
+    std::cout << "What is the length of the third side? \n";
+    std::cin >> value; // Store the input to the variable value.
+    side_c = value; // The third side will have the value of the users input above.
+
+    // If the user inputs any value other than an integer, the program will output an error and quit.
+    if (std::cin.fail()) {
+        std::cout << "Invalid statement";
+        return 0;
+    }
+    
+    // If statement that checks if any side would be greater than any other two sides combined, if so the program will output an error and quit.
+    if ((side_a + side_b) < side_c || (side_a + side_c) < side_b || (side_b + side_c) < side_a) {
+        std::cout << "This is not a valid triangle";
+        return 0;
+    }
+
+    // Formula for the semiperimeter.
+    semiPerimeter = (side_a + side_b + side_c) / 2;
+    area = sqrt(semiPerimeter * (semiPerimeter - side_a) * (semiPerimeter - side_b) * (semiPerimeter - side_c)); // Formula of the area by including the <cmath> to access the square root.
+    
+    std::cout << "Triangle is valid" << std::endl;
+    std::cout << "area is " << std::fixed << std::setprecision(2) << area; // The output of the program.
+
+
+ 
+    
+
+
+}
